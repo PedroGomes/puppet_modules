@@ -31,5 +31,8 @@ it and/or modify it under the terms of the GNU
 General Public License version 3 as published by 
 the Free Software Foundation.
 
+# Feedback:
+
+If you found a bug or saw me do something noob, please, your feedback is welcome. 
 
 
