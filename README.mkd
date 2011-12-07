@@ -10,8 +10,8 @@ Classes with some inspiration in [puzzle's puppet-java] (https://github.com/puzz
 To use, extract the jdk file from Oracle, create a tar.gz and put it in the files folder for the respective version. If the version is different from the one there, edit the deploy.pp  
 
 Limitations:
-- You can't use both at same time cause they try to update a path updating file on profile.d. Use one at a time. 
-- When installing, all java binaries paths are updated, but binaries that are exclusive to a post/previous version will still point to that version (ex java-rmi.cgi) 
+- You can't use both at same time cause they try to update a path updating file on profile.d. Use one at a time. Both java6 and java7 classes depend on the java class. 
+-  When installing, all java binaries paths are updated, but binaries that are exclusive to a post/previous version will still point to that version (ex java-rmi.cgi) 
 - To make it fast, the files are copied in a tar.gz and extracted on site. This is a simple implementation that leaves the archive and a installation file in /var/tmp due to puppet nature. 
 
 
