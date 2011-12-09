@@ -10,14 +10,13 @@ Modules:
 
 ### Java 6 and Java 7 for Ubuntu 
 
-Classes with some inspiration in [puzzle's puppet-java] (https://github.com/puzzle/puppet-java) and based in then update-alternatives command. 
+Classes with some inspiration in [puzzle's puppet-java] (https://github.com/puzzle/puppet-java) and based in the update-alternatives command. 
 
-To use, extract the jdk file from Oracle, create a tar.gz and put it in the files folder for the respective version. If the version is different from the one there, edit the deploy.pp  
+To use, extract the jdk file from Oracle, create a tar.gz and put it in the files folder for the respective version. If the version is different from the one there, edit the deploy.pp. Both java6 and java7 classes depend on the java class.  
 
 Limitations:
 
-*  You can't use both at same time cause they try to update a path updating file on profile.d. Use one at a time. Both java6 and java7 classes depend on the java class. 
-*  When installing, all java binaries paths are updated, but binaries that are exclusive to a post/previous version will still point to that version (ex java-rmi.cgi)  
+*  When installing, all java binaries paths are updated, but binaries that are exclusive to a post/previous version will still point to that version (ex java-rmi.cgi). Some of this binaries are also unacessary and should go to sbin.   
 *  To make it fast, the files are copied in a tar.gz and extracted on site. This is a simple implementation that leaves the archive and a installation file in /var/tmp due to puppet nature. 
 
 ### Cassandra
