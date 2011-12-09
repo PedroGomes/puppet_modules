@@ -28,6 +28,10 @@ To use, extract the Cassandra folder to the file directory, and check the costum
 
 `TODO:` Due to the number of files in the Cassadra folder, the deploy is slow so a folder strip or a tar strategy is advised. 
 
+### SSH
+
+An simple ssh configuration module to disable password access and give access to desired users trough public key. It is hard-coded for one user, so change it for your use case and put your ssh keys in the authorized_keys file. 
+
 License:
 -------
 
