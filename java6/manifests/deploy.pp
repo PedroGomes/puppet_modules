@@ -66,8 +66,4 @@ class java6::deploy inherits java::base{
         require => Exec["set_jdk6"]
     }
 
-    File["/etc/profile.d/java.sh"]{
-	content => template("java6/java.erb"),
-    }
-
 }

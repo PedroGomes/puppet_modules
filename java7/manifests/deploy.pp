@@ -65,9 +65,5 @@ class java7::deploy inherits java::base {
         command => 'update-java-alternatives --set java-7-oracle',
         require => Exec["set_jdk7"]
     }
-    
-    File["/etc/profile.d/java.sh"]{
-         content =>  template("java7/java.erb"),
-   }
 
 }
