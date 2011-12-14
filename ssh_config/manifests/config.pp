@@ -21,9 +21,11 @@ class ssh_config::config{
         require => File["/home/gsd/.ssh"]
    }
 
+  
    exec{'change_sshd_config':
         path => "/usr/bin/:/bin:/usr/sbin:/sbin",
-        command => 'sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config | sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config  | sed -i "s/UsePAM yes/UsePAM no/" /etc/ssh/sshd_config',
+        #dummy end command to garatee the last sed execution
+        command => 'sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config ; sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config  ; sed -i "s/UsePAM yes/UsePAM no/" /etc/ssh/sshd_config',
         require => Exec["backup_config"]
    }
    
