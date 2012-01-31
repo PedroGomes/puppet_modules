@@ -15,25 +15,17 @@ class ssh_config::config{
          require => File["/home/gsd/.ssh"]
    }
 
-   exec{'backup_config':
-        path => "/usr/bin/:/bin:/usr/sbin:/sbin",
-        command => 'cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig',
-        require => File["/home/gsd/.ssh"]
+   file{'/etc/ssh/sshd_config':
+         ensure => file ,
+         owner => root, group => root, mode => 644,
+         source => "puppet:///modules/ssh_config/sshd_config",
+         require => File["/home/gsd/.ssh"]
    }
 
-  
-   exec{'change_sshd_config':
-        path => "/usr/bin/:/bin:/usr/sbin:/sbin",
-        #dummy end command to garatee the last sed execution
-        command => 'sed -i "s/PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config ; sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config  ; sed -i "s/UsePAM yes/UsePAM no/" /etc/ssh/sshd_config',
-        require => Exec["backup_config"]
-   }
-   
    exec{'restart_ssh':
         path => "/usr/bin/:/bin:/usr/sbin:/sbin",
         command => "service ssh restart",
-        require => Exec["change_sshd_config"]
-   }
+        require => File["/etc/ssh/ssh_host_dsa_key.pub"]   
+   }  
   
-
 }
