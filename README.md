@@ -17,7 +17,7 @@ To use, extract the jdk file from Oracle, create a tar.gz and put it in the file
 Limitations:
 
 *  When installing, all java binaries paths are updated, but binaries that are exclusive to a post/previous version will still point to that version (ex java-rmi.cgi). Some of this binaries are also unacessary and should go to sbin.   
-*  To make it fast, the files are copied in a tar.gz and extracted on site. This is a simple implementation that leaves the archive and a installation file in /var/tmp due to puppet nature. 
+*  To make it fast, the files are copied in a tar.gz and extracted on site. This is a simple implementation that due to puppet nature is only viable for a one time deploy trough puppet. 
 
 ### Cassandra
 
@@ -38,6 +38,11 @@ Note: In puppet filosofy, the edition of the sshd_config file trough sed command
 Small module for the deploy of a init.d script for wakeonlan in Ubuntu.   
 Note: It should include the installation of the package ethtool, but in my case it was not necessary. 
 
+### Ganglia
+
+Small module for ganglia installation, prepared to cope with the current bug that affects the Ubuntu Oneric repository.    
+To use, change the gmod configuration file. 
+
 License:
 -------
 
@@ -49,6 +54,6 @@ the Free Software Foundation.
 Feedback:
 ---------
 
-If you found a bug or saw me do something noob, please, your feedback is welcome. 
+If you found a bug or saw me do something stupid, please, your feedback is welcome. 
 
 
