@@ -31,7 +31,6 @@ To use, extract the Cassandra folder to the file directory, and check the costum
 ### SSH
 
 An simple ssh configuration module to disable password access and give access to desired users trough public key. It is hard-coded for one user, so change it for your use case and put your ssh keys in the authorized_keys file.   
-Note: In puppet filosofy, the edition of the sshd_config file trough sed commands is not advised and should be replaced by a file.   
 
 ### Wakeonlan
 
